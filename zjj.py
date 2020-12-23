@@ -22,7 +22,7 @@ if not os.path.exists("zjj.xlsx"):
     wb.save('zjj.xlsx')
     print("文件创建成功")
 print("文件存在，继续执行")
-driver = webdriver.Chrome(r'C:\Users\JIA-PC\AppData\Local\Programs\Python\Python38\chromedriver.exe')
+driver = webdriver.Chrome(r'chromedriver.exe')
 driver.get('http://zjj.sz.gov.cn/bzflh//jsplib/lhccx/singlelhc_query1.jsp')
 driver.find_element_by_xpath('//*[@id="bahzh"]').send_keys(beianhao)
 driver.find_element_by_xpath('//*[@id="xingm"]').send_keys(xingming)
