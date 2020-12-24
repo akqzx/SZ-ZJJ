@@ -1,9 +1,9 @@
 import os
 import time
 import datetime
-import openpyxl
 import sys
 import platform
+import openpyxl
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from openpyxl import Workbook
