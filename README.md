@@ -11,3 +11,5 @@ beianhao = "备案回执号"
 xingming = "姓名"
 
 shenfenID = "身份证号码"
+
+![image](https://github.com/akqzx/SZ-ZJJ/blob/main/%E5%9B%BE%E7%A4%BA.jpg) 
