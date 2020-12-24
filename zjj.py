@@ -2,6 +2,9 @@ import os
 import time
 import datetime
 import openpyxl
+import sys
+import platform
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from openpyxl import Workbook
 from openpyxl.chart.axis import DateAxis
@@ -12,6 +15,21 @@ from openpyxl.chart import (
 beianhao = "备案回执号"
 xingming = "姓名"
 shenfenID = "身份证号码"
+
+platform_ = platform.system()
+if platform_ == "Windows":
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+elif platform_ == "Linux":
+    from selenium.webdriver.chrome.options import Options
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--no-sandbox')
+    driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
+elif platform_ == "Mac":
+    print("not support")
+    sys.exit()
+
 if not os.path.exists("zjj.xlsx"):
     wb = Workbook()
     ws = wb.active
@@ -20,9 +38,7 @@ if not os.path.exists("zjj.xlsx"):
     ws['B1'] = '户籍区排序号'
     ws['C1'] = '轮候排序号'
     wb.save('zjj.xlsx')
-    print("文件创建成功")
-print("文件存在，继续执行")
-driver = webdriver.Chrome(r'chromedriver.exe')
+
 driver.get('http://zjj.sz.gov.cn/bzflh//jsplib/lhccx/singlelhc_query1.jsp')
 driver.find_element_by_xpath('//*[@id="bahzh"]').send_keys(beianhao)
 driver.find_element_by_xpath('//*[@id="xingm"]').send_keys(xingming)
