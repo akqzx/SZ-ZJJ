@@ -29,7 +29,6 @@ elif platform_ == "Linux":
 elif platform_ == "Mac":
     print("not support")
     sys.exit()
-
 if not os.path.exists("zjj.xlsx"):
     wb = Workbook()
     ws = wb.active
@@ -38,7 +37,6 @@ if not os.path.exists("zjj.xlsx"):
     ws['B1'] = '户籍区排序号'
     ws['C1'] = '轮候排序号'
     wb.save('zjj.xlsx')
-
 driver.get('http://zjj.sz.gov.cn/bzflh//jsplib/lhccx/singlelhc_query1.jsp')
 driver.find_element_by_xpath('//*[@id="bahzh"]').send_keys(beianhao)
 driver.find_element_by_xpath('//*[@id="xingm"]').send_keys(xingming)
@@ -67,7 +65,7 @@ ws.column_dimensions['C'].width = 9.5
 data = Reference(ws, min_col=2, min_row=1, max_col=2, max_row=line)
 c1 = LineChart()
 c1.title = "户籍区排序号"
-c1.style = 13
+c1.style = 14
 c1.y_axis.crossAx = 500
 c1.x_axis = DateAxis(crossAx=100)
 c1.x_axis.number_format = 'd-mmm'
@@ -87,7 +85,7 @@ c2.x_axis.majorTimeUnit = "days"
 c2.add_data(data2, titles_from_data=True)
 dates2 = Reference(ws, min_col=1, min_row=2, max_row=line)
 c2.set_categories(dates2)
-ws.add_chart(c2, "E19")
+ws.add_chart(c2, "E20")
 wb.save('zjj.xlsx')
 driver.close()
 driver.quit()
