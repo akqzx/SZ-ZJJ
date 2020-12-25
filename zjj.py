@@ -1,7 +1,7 @@
 import os
+import sys
 import time
 import datetime
-import sys
 import platform
 import openpyxl
 from webdriver_manager.chrome import ChromeDriverManager
@@ -17,7 +17,7 @@ xingming = "姓名"
 shenfenID = "身份证号码"
 
 platform_ = platform.system()
-if platform_ == "Windows":
+if platform_ == "Windows" or platform_ == "Darwin":
     driver = webdriver.Chrome(ChromeDriverManager().install())
 elif platform_ == "Linux":
     from selenium.webdriver.chrome.options import Options
@@ -26,8 +26,8 @@ elif platform_ == "Linux":
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
-elif platform_ == "Mac":
-    print("not support")
+else:
+    print("未支持的操作系统")
     sys.exit()
 if not os.path.exists("zjj.xlsx"):
     wb = Workbook()
