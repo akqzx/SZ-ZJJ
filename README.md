@@ -4,7 +4,7 @@
 
 运行环境：python3，Chrome浏览器
 
-gongzufang.py	：单独公租房
+gongzufang.py	：单独公租房，
 guzj.py		：公租与安居同时记录
 
 只需要修改代码中的四个参数即可
