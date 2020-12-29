@@ -11,8 +11,6 @@ gzaj.py		：公租与安居同时记录
 
 gzbeianhao = "公租备案回执号"
 
-ajbeianhao = "安居备案回执号"
-
 xingming = "姓名"
 
 shenfenID = "身份证号码"
