@@ -51,7 +51,7 @@ time.sleep(1)
 gzqpw = driver.find_element_by_xpath("//*[@id='table']/tbody/tr/td[2]").text
 gzspw = driver.find_element_by_xpath("//*[@id='table']/tbody/tr/td[3]").text
 driver1.get('http://zjj.sz.gov.cn/bzflh//lhmcAction.do?method=queryYgbLhmcInfo&waittype=1')
-driver1.find_element_by_xpath('//*[@id="shoulbahzh"]').send_keys(ajbeianhao)
+driver1.find_element_by_xpath('//*[@id="xingm"]').send_keys(xingming)
 time.sleep(1)
 driver1.find_element_by_xpath('//*[@id="button"]').click()
 time.sleep(1)
