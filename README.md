@@ -4,10 +4,9 @@
 
 运行环境：python3，Chrome浏览器
 
-gongzufang.py	：单独公租房，
-gzaj.py		：公租与安居同时记录
+gongzufang.py
 
-只需要修改代码中的四个参数即可
+只需要修改代码中的3个参数即可
 
 gzbeianhao = "公租备案回执号"
 
