@@ -39,7 +39,9 @@ if not os.path.exists("zjj.xlsx"):
     ws['C1'] = '轮候排序号'
     wb.save('zjj.xlsx')
 driver.get('https://zjj.sz.gov.cn/zfxx/bzflh/?path=main/#/lhmcgr')
+time.sleep(2)
 driver.find_element(By.XPATH, '//*[@id="app"]/section/header/form/div[1]/div/div/div/input').click()
+time.sleep(2)
 driver.find_element(By.XPATH, '/html/body/div[3]/div[1]/div[1]/ul/li[2]').click()
 driver.find_element(By.XPATH, '//*[@id="app"]/section/header/form/div[2]/div/div/input').send_keys(beianhao)
 driver.find_element(By.XPATH, '//*[@id="app"]/section/header/form/div[3]/div/div/input').send_keys(xingming)
