@@ -69,22 +69,18 @@ time.sleep(3)
 anjuqu = driver.find_element(By.XPATH, '//*[@id="app"]/section/main/div/div[3]/table/tbody/tr/td[2]').text
 anjushi = driver.find_element(By.XPATH, '//*[@id="app"]/section/main/div/div[3]/table/tbody/tr/td[3]').text
 
-
+###查询上一次排位信息
 wb = openpyxl.load_workbook('zjj.xlsx')
 ws = wb['Sheet1']
-
-nb_row = ws.max_row
-oldgongzuqudyg = ("B"+str(nb_row))
+oldgongzuqudyg = ("B"+str(ws.max_row))
 oldgongzuqu = ws[oldgongzuqudyg].value
-
-oldanjuqudyg = ("D"+str(nb_row))
+oldanjuqudyg = ("D"+str(ws.max_row))
 oldanjuqu = ws[oldanjuqudyg].value
 
 ###判断是否与上一次数值相同
 if int(gongzuqu) == oldgongzuqu and int(anjuqu) == oldanjuqu:
     print("与上次查询的数据一致，结束")
     sys.exit(0)
-
 
 line = str(ws.max_row+1)
 todyA = ("A"+line)
